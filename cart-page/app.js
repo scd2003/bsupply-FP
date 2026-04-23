@@ -49,6 +49,7 @@ function updateQuantity(productId, change) {
             cart = cart.filter(i => i.id !== productId);
         }
         localStorage.setItem('cart', JSON.stringify(cart));
+        window.dispatchEvent(new Event('cart-updated'));
         loadCart();
     }
 }
@@ -63,6 +64,7 @@ function setQuantity(productId, quantity) {
             cart = cart.filter(i => i.id !== productId);
         }
         localStorage.setItem('cart', JSON.stringify(cart));
+        window.dispatchEvent(new Event('cart-updated'));
         loadCart();
     }
 }
@@ -71,6 +73,7 @@ function removeFromCart(productId) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart = cart.filter(item => item.id !== productId);
     localStorage.setItem('cart', JSON.stringify(cart));
+    window.dispatchEvent(new Event('cart-updated'));
     loadCart();
 }
 

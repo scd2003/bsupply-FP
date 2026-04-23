@@ -3,31 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Supply - Shop</title>
+    <title>G&S Beauty - Shop</title>
     <link rel="stylesheet" href="../styles/style-landing.css">
     <link rel="stylesheet" href="style-shop.css">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="logo">✨ Beauty Supply</h1>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="../cart-page/cart.html">Cart</a></li>
-            </ul>
-        </div>
-    </nav>
+<body data-page="shop">
+    <div id="site-header"></div>
 
     <main>
         <h2>Our Products</h2>
         <div class="products-grid" id="productsGrid"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Beauty Supply. All rights reserved.</p>
-    </footer>
+    <!-- Product Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p id="modalDescription"></p>
+                    <p class="modal-price">Price: $<span id="modalPrice"></span></p>
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-input">
+                            <button onclick="decreaseQty()">−</button>
+                            <input type="number" id="quantityInput" value="1" min="1">
+                            <button onclick="increaseQty()">+</button>
+                        </div>
+                    </div>
+                    <button class="btn-add-modal" onclick="addToCartFromModal()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="site-footer"></div>
+
+    <script src="../shared-layout.js"></script>
     <script src="../products.js"></script>
     <script src="app.js"></script>
 </body>
