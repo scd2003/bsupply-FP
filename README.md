@@ -1,4 +1,4 @@
-# bsupply-FP
+# G&S Beauty
 G&S Beauty
 Overview
 
